@@ -1,0 +1,31 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5264"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/gateway/Blog/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5051
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/Blog/{everything}",
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/gateway/Auth/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5140
+        }
+      ],
+      "DownstreamPathTemplate": "/api/v1/Auth/{everything}",
+      "DownstreamScheme": "http"
+    }
+  ]
+}

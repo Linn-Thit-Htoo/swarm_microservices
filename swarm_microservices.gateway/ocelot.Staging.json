@@ -1,0 +1,31 @@
+{
+  "GlobalConfiguration": {
+    "ServiceDiscoveryProvider": {
+      "Host": "consul",
+      "Port": 8500,
+      "Type": "Consul"
+    }
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/gateway/Blog/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "ServiceName": "blog",
+      "DownstreamPathTemplate": "/api/v1/Blog/{everything}",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DownstreamScheme": "http"
+    },
+    {
+      "UpstreamPathTemplate": "/api/gateway/Auth/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "ServiceName": "auth",
+      "DownstreamPathTemplate": "/api/v1/Auth/{everything}",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "DownstreamScheme": "http"
+    }
+  ]
+}

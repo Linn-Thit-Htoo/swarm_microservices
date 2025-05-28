@@ -1,0 +1,92 @@
+version: '3.8' # Use a recent version that supports the 'deploy' key
+
+services:
+  consul:
+    image: hashicorp/consul:latest
+    ports:
+      - "8500:8500"
+    environment:
+      # CONSUL_BIND_INTERFACE=eth0 might need adjustment depending on your Swarm network setup.
+      # For a multi-node Consul cluster, you'd typically configure it for server mode and discovery.
+      # For a single Consul instance in Swarm, this might be sufficient.
+      - CONSUL_BIND_INTERFACE=eth0
+    networks:
+      - app_network
+    deploy:
+      replicas: 1 # As requested, Consul has 1 replica
+      restart_policy:
+        condition: on-failure # Restart if the container exits with a non-zero status
+      resources: # Optional, but good practice to define limits
+        limits:
+          cpus: "0.5" # Example CPU limit
+          memory: "256M" # Example memory limit
+
+  blog:
+    image: blog:v1
+    build:
+      context: ./swarm_microservices.blog
+      dockerfile: Dockerfile
+    ports:
+      - "5051:80"
+    networks:
+      - app_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Staging
+    deploy:
+      replicas: 2 # As requested, microservices have 2 replicas
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: "100M"
+      restart_policy:
+        condition: any
+    depends_on:
+      - consul
+
+  auth:
+    image: auth:v1
+    build:
+      context: ./swarm_microservices.auth
+      dockerfile: Dockerfile
+    ports:
+      - "5140:80"
+    networks:
+      - app_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Staging
+    deploy:
+      replicas: 2 # As requested, microservices have 2 replicas
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: "100M"
+      restart_policy:
+        condition: any 
+    depends_on:
+      - consul
+
+  gateway:
+    image: gateway:v1
+    build:
+      context: ./swarm_microservices.gateway
+      dockerfile: Dockerfile
+    ports:
+      - "5264:80"
+    networks:
+      - app_network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Staging
+    deploy:
+      replicas: 2 # As requested, microservices have 2 replicas
+      resources:
+        limits:
+          cpus: "0.3"
+          memory: "100M"
+      restart_policy:
+        condition: any
+    depends_on:
+      - consul
+
+networks:
+  app_network:
+    driver: overlay # Overlay network is essential for Swarm communication

@@ -1,0 +1,6 @@
+@swarm_microservices.gateway_HostAddress = http://localhost:5264
+
+GET {{swarm_microservices.gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
