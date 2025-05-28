@@ -10,7 +10,11 @@ public class ServiceDiscoveryHostedService : IHostedService
     private AgentServiceRegistration _registration;
     private readonly ILogger<ServiceDiscoveryHostedService> _logger;
 
-    public ServiceDiscoveryHostedService(IConsulClient client, ServiceConfig config, ILogger<ServiceDiscoveryHostedService> logger)
+    public ServiceDiscoveryHostedService(
+        IConsulClient client,
+        ServiceConfig config,
+        ILogger<ServiceDiscoveryHostedService> logger
+    )
     {
         _client = client;
         _config = config;
@@ -42,7 +46,9 @@ public class ServiceDiscoveryHostedService : IHostedService
                 .ConfigureAwait(false);
 
             // Registers service
-            await _client.Agent.ServiceRegister(_registration, cancellationToken).ConfigureAwait(false);
+            await _client
+                .Agent.ServiceRegister(_registration, cancellationToken)
+                .ConfigureAwait(false);
         }
         catch (Exception ex)
         {
