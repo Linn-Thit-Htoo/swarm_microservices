@@ -6,15 +6,23 @@ namespace swarm_microservices.auth.Extensions;
 
 public static class DependencyInjectionExtensions
 {
-    public static IServiceCollection AddDependencies(this IServiceCollection services, WebApplicationBuilder builder)
+    public static IServiceCollection AddDependencies(
+        this IServiceCollection services,
+        WebApplicationBuilder builder
+    )
     {
         if (builder.Environment.IsStaging())
         {
             builder.Services.AddConsul(builder.Configuration.GetServiceConfig());
         }
 
-        builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
-            .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: false, reloadOnChange: true)
+        builder
+            .Configuration.SetBasePath(builder.Environment.ContentRootPath)
+            .AddJsonFile(
+                $"appsettings.{builder.Environment.EnvironmentName}.json",
+                optional: false,
+                reloadOnChange: true
+            )
             .AddEnvironmentVariables();
 
         builder.Services.AddControllers();
