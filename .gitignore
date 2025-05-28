@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/swarm_microservices.auth/appsettings.Staging.json
+/swarm_microservices.blog/appsettings.Staging.json
+/swarm_microservices.gateway/appsettings.Staging.json
