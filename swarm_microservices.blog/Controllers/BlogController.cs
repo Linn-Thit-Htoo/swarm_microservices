@@ -1,16 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace swarm_microservices.auth.Controllers
+namespace swarm_microservices.auth.Controllers;
+
+[Route("api/v1/[controller]")]
+[ApiController]
+public class BlogController : ControllerBase
 {
-    [Route("api/v1/[controller]")]
-    [ApiController]
-    public class BlogController : ControllerBase
+    [HttpGet("GetBlogs")]
+    public IActionResult GetBlogs()
     {
-        [HttpGet("GetBlogs")]
-        public IActionResult GetBlogs()
-        {
-            return Ok("Blog API");
-        }
+        return Ok("Blog API");
     }
 }
