@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace swarm_microservices.auth.Controllers;
+namespace swarm_microservices.gateway.Controllers;
 
 [Route("api/v1/[controller]")]
 [ApiController]

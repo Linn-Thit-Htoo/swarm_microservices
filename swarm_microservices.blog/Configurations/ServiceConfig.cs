@@ -1,4 +1,4 @@
-﻿namespace swarm_microservices.auth.Configurations;
+﻿namespace swarm_microservices.gateway.Configurations;
 
 public class ServiceConfig
 {

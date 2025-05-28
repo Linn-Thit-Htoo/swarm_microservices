@@ -1,8 +1,8 @@
 ﻿using Consul;
-using swarm_microservices.auth.Configurations;
-using swarm_microservices.auth.Services;
+using swarm_microservices.gateway.Configurations;
+using swarm_microservices.gateway.Services;
 
-namespace swarm_microservices.auth.Extensions;
+namespace swarm_microservices.gateway.Extensions;
 
 public static class DependencyInjectionExtensions
 {

@@ -1,7 +1,7 @@
 ﻿using Consul;
-using swarm_microservices.auth.Configurations;
+using swarm_microservices.gateway.Configurations;
 
-namespace swarm_microservices.auth.Services;
+namespace swarm_microservices.gateway.Services;
 
 public class ServiceDiscoveryHostedService : IHostedService
 {
