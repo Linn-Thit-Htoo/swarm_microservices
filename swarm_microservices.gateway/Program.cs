@@ -1,6 +1,4 @@
-using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using Ocelot.Provider.Consul;
 using swarm_microservices.gateway.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +7,6 @@ builder.Services.AddDependencies(builder);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
