@@ -1,5 +1,5 @@
-using swarm_microservices.blog.Extensions;
-using swarm_microservices.blog.Services;
+using swarm_microservices.auth.Extensions;
+using swarm_microservices.auth.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

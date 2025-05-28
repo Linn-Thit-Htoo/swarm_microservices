@@ -1,4 +1,4 @@
-﻿namespace swarm_microservices.blog.Configurations
+﻿namespace swarm_microservices.auth.Configurations
 {
     public class ServiceConfig
     {

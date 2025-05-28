@@ -1,7 +1,7 @@
 ﻿using Consul;
-using swarm_microservices.blog.Configurations;
+using swarm_microservices.auth.Configurations;
 
-namespace swarm_microservices.blog.Services
+namespace swarm_microservices.auth.Services
 {
     public class ServiceDiscoveryHostedService : IHostedService
     {
