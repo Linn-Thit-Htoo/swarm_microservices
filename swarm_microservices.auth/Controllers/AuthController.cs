@@ -1,16 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace swarm_microservices.auth.Controllers
+namespace swarm_microservices.auth.Controllers;
+
+[Route("api/v1/[controller]")]
+[ApiController]
+public class AuthController : ControllerBase
 {
-    [Route("api/v1/[controller]")]
-    [ApiController]
-    public class AuthController : ControllerBase
+    [HttpGet("GetUserInfo")]
+    public IActionResult GetUserInfo()
     {
-        [HttpGet("GetUserInfo")]
-        public IActionResult GetUserInfo()
-        {
-            return Ok("User Info API");
-        }
+        return Ok("Auth API");
     }
 }
