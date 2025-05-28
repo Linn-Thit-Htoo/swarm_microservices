@@ -32,12 +32,10 @@ namespace swarm_microservices.auth.Services
                 },
             };
 
-            // Deregister already registered service
             await _client
                 .Agent.ServiceDeregister(_registration.ID, cancellationToken)
                 .ConfigureAwait(false);
 
-            // Registers service
             await _client.Agent.ServiceRegister(_registration, cancellationToken).ConfigureAwait(false);
         }
 
