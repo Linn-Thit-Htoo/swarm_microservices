@@ -1,6 +1,5 @@
-﻿namespace swarm_microservices.auth
+﻿namespace swarm_microservices.auth;
+
+public class GlobalUsings
 {
-    public class GlobalUsings
-    {
-    }
 }
