@@ -1,5 +1,4 @@
-﻿
-namespace swarm_microservices.gateway.Services;
+﻿namespace swarm_microservices.gateway.Services;
 
 public class ServiceDiscoveryHostedService : IHostedService
 {
