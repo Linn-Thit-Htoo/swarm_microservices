@@ -1,5 +1,4 @@
-﻿using Consul;
-
+﻿
 namespace swarm_microservices.gateway.Services;
 
 public class ServiceDiscoveryHostedService : IHostedService
