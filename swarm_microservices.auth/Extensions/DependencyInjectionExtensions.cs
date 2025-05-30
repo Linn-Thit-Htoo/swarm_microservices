@@ -1,8 +1,4 @@
-﻿global using Consul;
-global using swarm_microservices.gateway.Configurations;
-global using swarm_microservices.gateway.Services;
-
-namespace swarm_microservices.gateway.Extensions;
+﻿namespace swarm_microservices.gateway.Extensions;
 
 public static class DependencyInjectionExtensions
 {
