@@ -1,4 +1,4 @@
-using swarm_microservices.gateway.Extensions;
+global using swarm_microservices.gateway.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
