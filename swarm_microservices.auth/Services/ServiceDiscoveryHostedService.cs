@@ -1,5 +1,4 @@
 ﻿using Consul;
-using swarm_microservices.gateway.Configurations;
 
 namespace swarm_microservices.gateway.Services;
 
