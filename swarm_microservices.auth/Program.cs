@@ -1,5 +1,3 @@
-global using swarm_microservices.gateway.Extensions;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDependencies(builder);
