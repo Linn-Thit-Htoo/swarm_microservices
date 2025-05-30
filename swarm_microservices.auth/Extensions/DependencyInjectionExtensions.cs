@@ -1,6 +1,6 @@
-﻿using Consul;
-using swarm_microservices.gateway.Configurations;
-using swarm_microservices.gateway.Services;
+﻿global using Consul;
+global using swarm_microservices.gateway.Configurations;
+global using swarm_microservices.gateway.Services;
 
 namespace swarm_microservices.gateway.Extensions;
 
